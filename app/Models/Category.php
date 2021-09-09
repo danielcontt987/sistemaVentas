@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['name','image']; //llenado masivo en donde se van a llenar los campos
+
+
+   public function products()
+   {
+   	 return $this->hasMany(Product::class);
+   }
+
+  public function getImagenAttribute(){
+
+  	   if ($this->image==null) {
+  	   	return 'noimg.png';
+  	   }
+
+  	    if(file_exists('storage/categorias/' . $this->image))
+        	return $this->image;
+        else
+        	return 'noimg.png';
+    }
+
+}
