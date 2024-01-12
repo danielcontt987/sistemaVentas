@@ -61,6 +61,7 @@ class UserController extends Component
         $this->status = "Elegir";
         $this->selected_id = 0;
         $this->resetValidation();
+        $this->resetPage();
     }
 
     public function edit(User $user)
