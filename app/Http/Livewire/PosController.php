@@ -37,8 +37,8 @@ class PosController extends Component
     }
 
     public function Acash($value){
-        $this->efectivo += ($value == 0 ? $this->total : $value);
-        $this->change = ($this->efectivo - $this->total);
+        $this->efectivo += ($value == 0 ? floatval($this->total) : floatval($value));
+        $this->change = (floatval($this->efectivo) - floatval($this->total));
     }
 
     protected $listeners = [

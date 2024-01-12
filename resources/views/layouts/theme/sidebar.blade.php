@@ -32,7 +32,7 @@
             </a>
         </li>
         <li class="">
-            <a href="#" class="menu-toggle" data-active="false">
+            <a href="{{url('roles')}}" class="menu-toggle" data-active="false">
                 <div class="base-menu">
                     <div class="base-icons">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-ccw"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
@@ -42,7 +42,7 @@
             </a>
         </li>
         <li class="">
-            <a href="#" class="menu-toggle" data-active="false">
+            <a href="{{url('permisos')}}" class="menu-toggle" data-active="false">
                 <div class="base-menu">
                     <div class="base-icons">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> 
@@ -52,7 +52,7 @@
             </a>
         </li>
          <li class="">
-            <a href="#" class="menu-toggle" data-active="false">
+            <a href="{{url('asignar')}}" class="menu-toggle" data-active="false">
                 <div class="base-menu">
                     <div class="base-icons">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>                      
@@ -62,7 +62,7 @@
             </a>
         </li>
          <li class="">
-            <a href="#" class="menu-toggle" data-active="false">
+            <a href="{{url('usuarios')}}" class="menu-toggle" data-active="false">
                 <div class="base-menu">
                     <div class="base-icons">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>

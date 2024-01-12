@@ -15,7 +15,7 @@
 			<div class="widget-content">
 				<div class="table-reponsive">
 					<table class="table table-bordered table striped mt-1">
-						<thead class="text-white" style="color: #F96445">
+						<thead class="text-white" style="color: #3B3F5C">
 							<tr>
 								<th class="table-th text-white">DESCRIPTION</th>
 								<th class="table-th text-white">IMAGE</th>

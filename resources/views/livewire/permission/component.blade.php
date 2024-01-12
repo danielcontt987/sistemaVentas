@@ -24,22 +24,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($roles as $rol)
+                            @foreach ($permissions as $p)
                                 <tr>
                                     <td>
-                                        <h6>{{ $rol->id }}</h6>
+                                        <h6>{{ $p->id }}</h6>
                                     </td>
                                     <td class="text-center">
-                                        <h6>{{ $rol->name }}</h6>
+                                        <h6>{{ $p->name }}</h6>
                                     </td>
                                     <td class="text-center">
                                         <a href="javascript:void(0)" class="btn btn-dark mtmobile"
-                                            wire:click="Edit({{ $rol->id }})" title="Editar registro">
+                                            wire:click="Edit({{ $p->id }})" title="Editar registro">
 
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <a href="javascript:void(0)" class="btn btn-dark mtmobile"
-                                            onclick="Confirmar('{{ $rol->id }}')" title="Eliminar registro">
+                                            onclick="Confirmar('{{ $p->id }}')" title="Eliminar registro">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -47,41 +47,37 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $roles->links() }}
+                    {{ $permissions->links() }}
                 </div>
             </div>
         </div>
     </div>
-    @include('livewire.roles.form')
+    @include('livewire.permission.form')
 </div>
 
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
 
-        window.livewire.on('role-added', Msg => {
+
+        window.livewire.on('permission-added', Msg => {
             $('#theModal').modal('hide')
             noty(Msg);
         })
 
-        window.livewire.on('role-updated', Msg => {
+        window.livewire.on('permission-updated', Msg => {
             $('#theModal').modal('hide')
             noty(Msg);
         })
 
-        window.livewire.on('role-deleted', Msg => {
+        window.livewire.on('permission-deleted', Msg => {
             noty(Msg);
         })
 
-        window.livewire.on('role-exists', Msg => {
+        window.livewire.on('permission-exists', Msg => {
             noty(Msg);
         })
 
-        window.livewire.on('role-error', Msg => {
-            noty(Msg);
-        })
-
-        window.livewire.on('hide-modal', Msg => {
-            $('#theModal').modal('hide')
+        window.livewire.on('permission-error', Msg => {
             noty(Msg);
         })
 
