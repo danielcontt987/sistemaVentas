@@ -8,6 +8,7 @@ use App\Models\Sale;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\SaleDetails;
+use Carbon\Carbon;
 use Darryldecode\Cart\Facades\CartFacade as Cart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -85,21 +86,22 @@ class PosController extends Component
     	$title = '';
     	$product = Product::find($productId);
     	$exist = Cart::get($productId);
-    	if ($exist)
-    		$title = 'Cantidad actualizada';
-    	else
+    	if ($exist){
+        if ($product->stock < ($cant + $exist->quantity)){
+          $this->emit('no-stock', 'Stock insuficiente :(');
+          return;
+        }else{
+          $title = 'Cantidad actualizada';
+        }
+      }else{
     		$title = 'Producto Agregado';
-
-    	if($exist){
-    		if ($product->stock < ($cant + $exist->quantity)){
-    			$this->emit('no-stock', 'Stock insuficiente :(');
-    		}
-    	}
+      }
 
     	Cart::add($product->id, $product->name, $product->price, $cant, $product->image);
 
     	$this->total = Cart::getTotal();
     	$this->itemsQuantity = Cart::getTotalQuantity();
+      // dd($this->itemsQuantity);
     	$this->emit('scan-ok', $title);
 
     }
@@ -168,6 +170,7 @@ class PosController extends Component
    }
 
    public function saveSale(){
+     
      if($this->total <= 0){
       $this->emit('sale-error', 'Agrega productos a la venta');
       return;
@@ -183,12 +186,13 @@ class PosController extends Component
 
      DB::beginTransaction();
      try{
-
       $sale = Sale::create([
          'total' => $this->total,
-         'items' => $this->itemsQuantity,
+         'items' => Cart::getTotalQuantity(),
          'cash' => $this->efectivo,
          'change' => $this->change,
+         'created_at' => Carbon::now(),
+         'updated_at' => Carbon::now(),
          'user_id' => Auth()->user()->id
 
       ]);
