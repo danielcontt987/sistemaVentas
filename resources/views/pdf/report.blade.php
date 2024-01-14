@@ -107,12 +107,12 @@
                                 {{ \Carbon\Carbon::now()->format('d-m-Y') }}</strong></span>
                     @endif
                     <br>
-                    @if ($user != "Todos")
+                    @if ($user != 'Todos')
                         <span style="font-size: 14px; color:#3B3F5C;"><strong>Usuario:
                                 {{ $user->name }}</strong></span>
                     @else
                         <span style="font-size: 14px; color:#3B3F5C;"><strong>Usuarios:
-                            Todos</strong></span>
+                                Todos</strong></span>
                     @endif
                 </td>
             </tr>
@@ -123,8 +123,8 @@
             <thead>
                 <tr>
                     <th>FOLIO</th>
-                    <th>IMPORTE</th>
                     <th>CANT</th>
+                    <th>IMPORTE</th>
                     <th>ESTAUS</th>
                     <th>USUARIO</th>
                     <th>FECHA</th>
@@ -134,14 +134,21 @@
                 @foreach ($data as $item)
                     <tr>
                         <td align="center">{{ $item->id }}</td>
-                        <td align="center">${{ number_format($item->total, 2) }}</td>
                         <td align="center">{{ $item->items }}</td>
+                        <td align="center">${{ number_format($item->total, 2) }}</td>
                         <td align="center"><span class="chip">{{ $item->status }}</span></td>
                         <td align="center">{{ $item->user }}</td>
                         <td align="center">{{ $item->created_at }}</td>
                     </tr>
                 @endforeach
             </tbody>
+            <tfoot>
+                <tr>
+                    <td>TOTALES</td>
+                    <td>{{ $data->sum('items') }}</td>
+                    <td>${{ number_format($data->sum('total'), 2) }}</td>
+                </tr>
+            </tfoot>
         </table>
     </section>
     <script type="text/php">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SalesExport;
 use App\Models\Sale;
 use App\Models\SaleDetails;
 use App\Models\User;
@@ -50,5 +51,11 @@ class ExportController extends Controller
         
         $pdf = Pdf::loadView('pdf.report', $data2);
         return $pdf->stream('reporte-ventas.pdf');
+    }
+
+    public function reportExcel($userId, $reportType, $dateFrom = null, $dateTo = null) 
+    {
+        $reportName = 'Reporte-de-ventas' . uniqid() . '.xlsx';
+        return Excel::download(new SalesExport($userId, $reportType, $dateFrom, $dateTo), $reportName);
     }
 }

@@ -41,12 +41,14 @@ Route::get('asignar', AsignController::class);
 Route::get('usuarios', UserController::class);
 Route::get('arqueos', CashoutController::class);
 Route::get('reportes', ReportController::class);
+
 //Reportes PDF
 Route::get('report/pdf/{userId}/{type}/{f1}/{f2}', [ExportController::class, 'reportPDF']);
 Route::get('report/pdf/{userId}/{type}', [ExportController::class, 'reportPDF']);
 
 //Reportes Excel
-
+Route::get('report/excel/{userId}/{type}/{f1}/{f2}', [ExportController::class, 'reportExcel']);
+Route::get('report/excel/{userId}/{type}', [ExportController::class, 'reportExcel']);
 
 
 
