@@ -6,16 +6,20 @@
 				<h4 class="card-title">
 					<b>{{$componentName}} | {{$pageTitle}}</b>
 				</h4>
-				<ul class="tabs tab-pills">
-					<li style="list-style:none" class="d-flex justify-content-end">
-						<a href="javascript:void(0)" 
-						class="btn btn-dark tbmenu" 
-						data-toggle="modal" 
-						data-target="#theModal">Agregar</a>
-					</li>
-				</ul>
+				@can('categoria_crear')
+					<ul class="tabs tab-pills">
+						<li style="list-style:none" class="d-flex justify-content-end">
+							<a href="javascript:void(0)" 
+							class="btn btn-dark tbmenu" 
+							data-toggle="modal" 
+							data-target="#theModal">Agregar</a>
+						</li>
+					</ul>
+				@endcan
 			</div>
-			@include('common.searchbox')
+			@can('categoria_buscar')
+				@include('common.searchbox')
+			@endcan
 
 			<div class="widget-content">
 				<div class="table-responsive">
@@ -37,17 +41,18 @@
 									</span>
 								</td>
 								<td class="text-center">
-									<a href="javascript:void(0)" wire:click="Edit({{$category->id}})"
-									class="btn btn-dark mtmobile" title="edit">
-
-										<i class="fas fa-edit"></i>
-									</a>
-
+									@can('categoria_actualizar')
+										<a href="javascript:void(0)" wire:click="Edit({{$category->id}})"
+											class="btn btn-dark mtmobile" title="edit">
+											<i class="fas fa-edit"></i>
+										</a>
+									@endcan
 									
-									<a href="javascript:void(0)" onclick="Confirmar('{{$category->id}}', '{{$category->products->count()}}', '{{$category->name}}')" class="btn btn-dark mtmobile" title="delete">
-										<i class="fas fa-trash"></i>
-									</a>
-									
+									@can('categoria_eliminar')
+										<a href="javascript:void(0)" onclick="Confirmar('{{$category->id}}', '{{$category->products->count()}}', '{{$category->name}}')" class="btn btn-dark mtmobile" title="delete">
+											<i class="fas fa-trash"></i>
+										</a>
+									@endcan								
 								</td>
 							</tr>
 							@endforeach
