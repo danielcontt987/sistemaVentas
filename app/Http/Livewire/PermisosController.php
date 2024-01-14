@@ -68,7 +68,7 @@ class  PermisosController  extends Component
         $this->emit('show-modal', 'Show modal');
     }
 
-    public function UpdateRole()
+    public function UpdatePermission()
     {
         $rules = ['permissionName' => "required|min:2|unique:permissions,name, {$this->selected_id}"];
         $message = [
@@ -83,7 +83,7 @@ class  PermisosController  extends Component
         $permission->name = $this->permissionName;
         $permission->save();
 
-        $this->emit('role-updated', 'Se actualizó el permiso con éxito');
+        $this->emit('permission-updated', 'Se actualizó el permiso con éxito');
         $this->resetUI();
     }
 
