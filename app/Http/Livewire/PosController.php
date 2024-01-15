@@ -28,7 +28,7 @@ class PosController extends Component
 
 
     public function render(){
-    	
+    	  $this->itemsQuantity = Cart::getTotalQuantity();
         return view('livewire.pos.component',[
            'denominations' => Denomination::orderBy('value', 'DESC')->get(),
            'cart' => Cart::getContent()->sortBy('name')
