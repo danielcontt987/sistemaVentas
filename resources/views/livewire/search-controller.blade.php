@@ -8,7 +8,7 @@
                 wire:keydown.enter.prevent="$emit('scan-code', $('#code').val())" 
                 class="form-control search-form-control color-fondo ml-lg-auto" 
                 style="background: #3b3f5c; color:aliceblue;"
-                placeholder="Search...">
+                placeholder="Buscar...">
             </div>
         </form>
     </li>

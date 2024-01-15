@@ -46,8 +46,14 @@ class PosController extends Component
       'scan-code' => 'ScanCode',
       'removeItem' => 'removeItem',
       'clearCart' => 'clearCart',
-      'saveSale' => 'saveSale'
+      'saveSale' => 'saveSale',
+      'scan-code-byid' => "ScanCodeById"
     ];
+
+    public function ScanCodeById(Product $product)
+    {
+        $this->increaseQty($product->id);
+    }
 
     public function ScanCode($barcode, $cant = 1){
       //dd($barcode);
@@ -237,7 +243,7 @@ class PosController extends Component
    }
 
    public function printTicket($sale){
-    return Redirect::to("print://$sale->id");
+    return Redirect::to("ticket/$sale->id");
   }
    
 }  

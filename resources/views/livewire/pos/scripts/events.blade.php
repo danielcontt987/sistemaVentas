@@ -18,11 +18,7 @@
 		})
 
 		window.livewire.on('print-ticket', saleId=>{
-			window.open("print://" + saleId, '__blank');
+			window.open("ticket/" + saleId, '__blank');
 		})
 	})
 </script>
-
-scan-notfound
-no-stock
-scan-ok

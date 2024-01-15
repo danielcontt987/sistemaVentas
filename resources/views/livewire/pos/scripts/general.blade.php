@@ -6,6 +6,10 @@
 
 		$(".tblscroll").niceScroll();
 
+		$('#modalSearchProduct').on('shown.bs.modal', function(){
+			$('#modal-search-input').focus()
+		})
+
 	});
 	
 		

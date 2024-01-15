@@ -1,3 +1,15 @@
+<div class="connect-sorting mb-2">
+	<div class="btn-group">
+		<button class="btn btn-dark mr-3" data-toggle="modal" data-target="#modalSearchProduct">
+			<i class="fas fa-serach" ></i>
+			Buscar productos
+		</button>
+		<button wire:click="printLast" class="btn btn-dark">
+			<i class="fas fa-serach" ></i>
+			Reimprimir Última f7
+		</button>
+	</div>
+</div>
 <div class="connect-sorting">
 	<div class="connect-sorting-content">
 		<div class="card simple-title-task ui-sortable-handle">
